@@ -1,0 +1,57 @@
+UsersListSuccessResponse:
+  description: Get users list success response
+  schema:
+    type: array
+    items:
+      $ref: '../definitions/users.yml#/User'
+  examples:
+    application/json:
+      [
+        {
+            "id": 999,
+            "name": "manager",
+            "surname": "manager",
+            "email": "manager@example.com",
+            "createdAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)",
+            "updatedAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)"
+        },
+        {
+            "id": 998,
+            "name": "user",
+            "surname": "user",
+            "email": "user@example.com",
+            "createdAt": "Tue Apr 16 2019 17:20:18 GMT+0200 (GMT+02:00)",
+            "updatedAt": "Tue Apr 16 2019 17:20:18 GMT+0200 (GMT+02:00)"
+        }
+    ]
+
+UserDetailSuccessResponse:
+  description: Save user success response
+  schema:
+    $ref: '../definitions/users.yml#/User'
+  examples:
+    application/json:
+      {
+          "id": 999,
+          "name": "manager",
+          "surname": "manager",
+          "male": "M",
+          "email": "manager@example.com",
+          "createdAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)",
+          "updatedAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)"
+      }
+
+DeleteUserSuccessResponse:
+  description: Delete user data (GDPR) response
+  schema:
+    $ref: '../definitions/users.yml#/User'
+  examples:
+    application/json:
+      {
+          "id": 999,
+          "name": "manager",
+          "surname": "manager",
+          "email": "manager@example.com",
+          "createdAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)",
+          "updatedAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)"
+      }

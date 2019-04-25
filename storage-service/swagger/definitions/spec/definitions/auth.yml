@@ -1,0 +1,17 @@
+CredentialToken:
+  description: Login successful reply
+  type: object
+  properties:
+    token:
+      description: Authorizarion token. To use as Bearer Authorization header
+      type: string
+
+UserLogin:
+  type: object
+  properties:
+    username:
+      description: username
+      type: string
+    password:
+      description: password
+      type: string

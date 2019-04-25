@@ -1,0 +1,7 @@
+BearerToken:
+  description: |
+    Bearer Token required.
+    Digit "Bearer " and token from login api response
+  type: apiKey
+  name: Authorization
+  in: header

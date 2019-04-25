@@ -1,0 +1,7 @@
+Hello:
+  description: Hello
+  type: object
+  properties:
+    reply:
+      description: Reply message
+      type: string

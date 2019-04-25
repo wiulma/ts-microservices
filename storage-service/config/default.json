@@ -1,0 +1,40 @@
+{
+  "database": {
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "database": "sample",
+    "username": "sample",
+    "password": "sample-pwd",
+    "synchronize": true,
+    "logging": true
+  },
+  "logger": {
+    "level": "debug",
+    "useConsoleAppender": true,
+    "useFileAppender": true,
+    "logsFolder": "logs/",
+    "fileName": "sample-storage-service-%DATE%.log",
+    "maxFiles": 10,
+    "maxSize": 10485760
+  },
+  "secretKey": "samplesecret",
+  "http": {
+    "port": "8005"
+  },
+  "https": {
+    "enabled": false,
+    "cert": {
+      "crt": "cert/dev/sample_storage-service-crt.pem",
+      "key": "cert/dev/sample_storage-service-key.pem",
+      "ca": "cert/dev/ca-crt.pem"
+    },
+    "url": "https://localhost",
+    "port": "8045"
+  },
+  "service": {
+    "exposeApiDoc": true,
+    "exposeDoc": true,
+    "context": ""
+  }
+}

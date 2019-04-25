@@ -1,0 +1,305 @@
+{
+	"/login": {
+		"post": {
+			"summary": "Login user api",
+			"description": "Login user api",
+			"tags": [
+				"Auth"
+			],
+			"produces": [
+				"application/json"
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/auth.yml#/userLogin"
+				}
+			],
+			"responses": {
+				"200": {
+					"$ref": "../spec/responses/auth.yml#/LoginSuccessResponse"
+				}
+			}
+		}
+	},
+	"/logout": {
+		"get": {
+			"summary": "Logout user api",
+			"description": "Logout user api",
+			"tags": [
+				"Auth"
+			],
+			"produces": [
+				"application/json"
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"responses": {
+				"204": {
+					"$ref": "../spec/common/responses.yml#/EmptySuccessResponse"
+				}
+			}
+		}
+	},
+	"/register": {
+		"post": {
+			"summary": "Register user api",
+			"description": "Register user api",
+			"tags": [
+				"Auth"
+			],
+			"produces": [
+				"application/json"
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"responses": {
+				"204": {
+					"$ref": "../spec/common/responses.yml#/EmptySuccessResponse"
+				},
+				"409": {
+					"$ref": "../spec/common/responses.yml#/ConflictErrorResponse"
+				}
+			}
+		}
+	},
+	"/auth/{id}": {
+		"put": {
+			"summary": "Update user authentication",
+			"description": "Update user authentication",
+			"tags": [
+				"Auth"
+			],
+			"produces": [
+				"application/json"
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/users.yml#/userId"
+				},
+				{
+					"$ref": "../spec/parameters/auth.yml#/updateAuth"
+				}
+			],
+			"responses": {
+				"204": {
+					"$ref": "../spec/common/responses.yml#/EmptySuccessResponse"
+				},
+				"422": {
+					"$ref": "../spec/common/responses.yml#/InvalidParametersErrorResponse"
+				}
+			}
+		}
+	},
+	"/auth/reset": {
+		"post": {
+			"summary": "Reset user password",
+			"description": "Reset user password",
+			"tags": [
+				"Auth"
+			],
+			"produces": [
+				"application/json"
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/auth.yml#/resetUserPassword"
+				}
+			],
+			"responses": {
+				"204": {
+					"$ref": "../spec/responses/auth.yml#/ResetUserPasswordSuccessResponse"
+				},
+				"404": {
+					"$ref": "../spec/common/responses.yml#/MissingParametersErrorResponse"
+				}
+			}
+		}
+	},
+	"/hello/{name}": {
+		"get": {
+			"summary": "Get Hello world",
+			"description": "Get Hello world",
+			"tags": [
+				"Hello"
+			],
+			"produces": [
+				"application/json"
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/hello.yml#/helloGetName"
+				}
+			],
+			"responses": {
+				"200": {
+					"$ref": "../spec/responses/hello.yml#/HelloSuccessResponse"
+				}
+			}
+		}
+	},
+	"/hello": {
+		"post": {
+			"summary": "Post Hello world",
+			"description": "Post Hello world",
+			"tags": [
+				"Hello"
+			],
+			"produces": [
+				"application/json"
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/hello.yml#/helloPostName"
+				}
+			],
+			"responses": {
+				"200": {
+					"$ref": "../spec/responses/hello.yml#/HelloSuccessResponse"
+				}
+			}
+		}
+	},
+	"/users": {
+		"get": {
+			"summary": "Get users list",
+			"description": "Get users list",
+			"tags": [
+				"Users"
+			],
+			"produces": [
+				"application/json"
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"responses": {
+				"200": {
+					"$ref": "../spec/responses/users.yml#/UsersListSuccessResponse"
+				}
+			}
+		},
+		"post": {
+			"summary": "Save new user",
+			"description": "save new user",
+			"tags": [
+				"Users"
+			],
+			"produces": [
+				"application/json"
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/users.yml#/userDetail"
+				}
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"responses": {
+				"200": {
+					"$ref": "../spec/responses/users.yml#/UserDetailSuccessResponse"
+				}
+			}
+		}
+	},
+	"/users/{id}": {
+		"get": {
+			"summary": "Get user detail",
+			"description": "Get user detail",
+			"tags": [
+				"Users"
+			],
+			"produces": [
+				"application/json"
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/users.yml#/userId"
+				}
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"responses": {
+				"200": {
+					"$ref": "../spec/responses/users.yml#/UserDetailSuccessResponse"
+				}
+			}
+		},
+		"put": {
+			"summary": "Save new user",
+			"description": "new user",
+			"tags": [
+				"Users"
+			],
+			"produces": [
+				"application/json"
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/users.yml#/userId"
+				},
+				{
+					"$ref": "../spec/parameters/users.yml#/userDetail"
+				}
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"responses": {
+				"200": {
+					"$ref": "../spec/responses/users.yml#/UserDetailSuccessResponse"
+				}
+			}
+		},
+		"delete": {
+			"summary": "Delete user data (gdpr)",
+			"description": "Delete user data (gdpr)",
+			"tags": [
+				"Users"
+			],
+			"produces": [
+				"application/json"
+			],
+			"parameters": [
+				{
+					"$ref": "../spec/parameters/users.yml#/userId"
+				}
+			],
+			"security": [
+				{
+					"BearerToken": []
+				}
+			],
+			"responses": {
+				"200": {
+					"$ref": "../spec/responses/users.yml#/DeleteUserSuccessResponse"
+				}
+			}
+		}
+	}
+}

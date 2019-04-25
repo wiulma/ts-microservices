@@ -1,0 +1,24 @@
+LoginSuccessResponse:
+  description: Login success response
+  schema:
+    $ref: "../definitions/auth.yml#/CredentialToken"
+  examples:
+    application/json:
+      [
+        {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTUxMzYxNjU0NzQsImlzcyI6InBldHN0bxfQ.PZs1VBi0-FCFQM-bw0u77Hyg6wuI1XuYA8Np_ZtMmWM"
+        }
+      ]
+
+ResetUserPasswordSuccessResponse:
+  description: Reset user password success response
+  schema:
+    $ref: "../definitions/auth.yml#/UserLogin"
+  examples:
+    application/json:
+      [
+        {
+          "username": "test-username",
+          "password": "test-password"
+        }
+      ]

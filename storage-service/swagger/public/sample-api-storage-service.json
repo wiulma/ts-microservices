@@ -1,0 +1,705 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Sample Storage Service API",
+    "version": "0.0.1-alpha1",
+    "title": "Sample Storage Service API",
+    "contact": {
+      "name": "Sample Support Team",
+      "email": "support@sample.com"
+    }
+  },
+  "basePath": "/api",
+  "securityDefinitions": {
+    "BearerToken": {
+      "description": "Bearer Token required.\nDigit \"Bearer \" and token from login api response\n",
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Login user api",
+        "description": "Login user api",
+        "tags": [
+          "Auth"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/userLogin"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/LoginSuccessResponse"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "summary": "Logout user api",
+        "description": "Logout user api",
+        "tags": [
+          "Auth"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/EmptySuccessResponse"
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "summary": "Register user api",
+        "description": "Register user api",
+        "tags": [
+          "Auth"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/EmptySuccessResponse"
+          },
+          "409": {
+            "$ref": "#/responses/ConflictErrorResponse"
+          }
+        }
+      }
+    },
+    "/auth/{id}": {
+      "put": {
+        "summary": "Update user authentication",
+        "description": "Update user authentication",
+        "tags": [
+          "Auth"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/userId"
+          },
+          {
+            "$ref": "#/parameters/updateAuth"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/EmptySuccessResponse"
+          },
+          "422": {
+            "$ref": "#/responses/InvalidParametersErrorResponse"
+          }
+        }
+      }
+    },
+    "/auth/reset": {
+      "post": {
+        "summary": "Reset user password",
+        "description": "Reset user password",
+        "tags": [
+          "Auth"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/resetUserPassword"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/ResetUserPasswordSuccessResponse"
+          },
+          "404": {
+            "$ref": "#/responses/MissingParametersErrorResponse"
+          }
+        }
+      }
+    },
+    "/hello/{name}": {
+      "get": {
+        "summary": "Get Hello world",
+        "description": "Get Hello world",
+        "tags": [
+          "Hello"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/helloGetName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/HelloSuccessResponse"
+          }
+        }
+      }
+    },
+    "/hello": {
+      "post": {
+        "summary": "Post Hello world",
+        "description": "Post Hello world",
+        "tags": [
+          "Hello"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/helloPostName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/HelloSuccessResponse"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Get users list",
+        "description": "Get users list",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/UsersListSuccessResponse"
+          }
+        }
+      },
+      "post": {
+        "summary": "Save new user",
+        "description": "save new user",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/userDetail"
+          }
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/UserDetailSuccessResponse"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Get user detail",
+        "description": "Get user detail",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/userId"
+          }
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/UserDetailSuccessResponse"
+          }
+        }
+      },
+      "put": {
+        "summary": "Save new user",
+        "description": "new user",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/userId"
+          },
+          {
+            "$ref": "#/parameters/userDetail"
+          }
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/UserDetailSuccessResponse"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete user data (gdpr)",
+        "description": "Delete user data (gdpr)",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/userId"
+          }
+        ],
+        "security": [
+          {
+            "BearerToken": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/DeleteUserSuccessResponse"
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "helloGetName": {
+      "name": "name",
+      "in": "path",
+      "description": "Name",
+      "type": "string",
+      "required": true
+    },
+    "helloPostName": {
+      "name": "name",
+      "description": "Hello name",
+      "in": "body",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "userLogin": {
+      "name": "userLogin",
+      "description": "user credentials",
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/UserLogin",
+        "required": [
+          "username",
+          "password"
+        ]
+      }
+    },
+    "updateAuth": {
+      "name": "auth",
+      "description": "user authemtication details",
+      "in": "body",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "format": "password"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "M",
+              "F"
+            ]
+          }
+        },
+        "required": [
+          "password"
+        ]
+      }
+    },
+    "resetUserPassword": {
+      "name": "resetPassword",
+      "description": "Reset User Password. \nUsername or email are required\n",
+      "in": "body",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "userId": {
+      "name": "id",
+      "in": "path",
+      "description": "User id",
+      "type": "string",
+      "required": true
+    },
+    "userDetail": {
+      "name": "user",
+      "description": "User detail object",
+      "in": "body",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "name",
+            "type": "string"
+          },
+          "surname": {
+            "description": "surname",
+            "type": "string"
+          },
+          "male": {
+            "description": "male",
+            "type": "string",
+            "enum": [
+              "M",
+              "F"
+            ]
+          },
+          "email": {
+            "description": "email",
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "required": [
+          "name",
+          "surname",
+          "email"
+        ]
+      }
+    }
+  },
+  "responses": {
+    "EmptySuccessResponse": {
+      "description": "Empty success response"
+    },
+    "ConflictErrorResponse": {
+      "description": "Conflict Error Response",
+      "schema": {
+        "$ref": "#/definitions/GenericError"
+      },
+      "examples": {
+        "application/json": [
+          {
+            "message": "conflict.error",
+            "details": "duplicate.username"
+          }
+        ]
+      }
+    },
+    "InvalidParametersErrorResponse": {
+      "description": "Invalid parameters Error Response",
+      "schema": {
+        "$ref": "#/definitions/InvalidParametersError"
+      },
+      "examples": {
+        "application/json": [
+          {
+            "message": "invalid.parameters",
+            "details": "invalid.username"
+          }
+        ]
+      }
+    },
+    "MissingParametersErrorResponse": {
+      "description": "Missing parameters Error Response",
+      "schema": {
+        "$ref": "#/definitions/MissingParametersError"
+      },
+      "examples": {
+        "application/json": [
+          {
+            "message": "missing.parameters",
+            "details": "required.username"
+          }
+        ]
+      }
+    },
+    "HelloSuccessResponse": {
+      "description": "Get hello success response",
+      "schema": {
+        "$ref": "#/definitions/Hello"
+      },
+      "examples": {
+        "application/json": [
+          {
+            "reply": "Hi giorgio"
+          }
+        ]
+      }
+    },
+    "LoginSuccessResponse": {
+      "description": "Login success response",
+      "schema": {
+        "$ref": "#/definitions/CredentialToken"
+      },
+      "examples": {
+        "application/json": [
+          {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTUxMzYxNjU0NzQsImlzcyI6InBldHN0bxfQ.PZs1VBi0-FCFQM-bw0u77Hyg6wuI1XuYA8Np_ZtMmWM"
+          }
+        ]
+      }
+    },
+    "ResetUserPasswordSuccessResponse": {
+      "description": "Reset user password success response",
+      "schema": {
+        "$ref": "#/definitions/UserLogin"
+      },
+      "examples": {
+        "application/json": [
+          {
+            "username": "test-username",
+            "password": "test-password"
+          }
+        ]
+      }
+    },
+    "UsersListSuccessResponse": {
+      "description": "Get users list success response",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/User"
+        }
+      },
+      "examples": {
+        "application/json": [
+          {
+            "id": 999,
+            "name": "manager",
+            "surname": "manager",
+            "email": "manager@example.com",
+            "createdAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)",
+            "updatedAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)"
+          },
+          {
+            "id": 998,
+            "name": "user",
+            "surname": "user",
+            "email": "user@example.com",
+            "createdAt": "Tue Apr 16 2019 17:20:18 GMT+0200 (GMT+02:00)",
+            "updatedAt": "Tue Apr 16 2019 17:20:18 GMT+0200 (GMT+02:00)"
+          }
+        ]
+      }
+    },
+    "UserDetailSuccessResponse": {
+      "description": "Save user success response",
+      "schema": {
+        "$ref": "#/definitions/User"
+      },
+      "examples": {
+        "application/json": {
+          "id": 999,
+          "name": "manager",
+          "surname": "manager",
+          "male": "M",
+          "email": "manager@example.com",
+          "createdAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)",
+          "updatedAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)"
+        }
+      }
+    },
+    "DeleteUserSuccessResponse": {
+      "description": "Delete user data (GDPR) response",
+      "schema": {
+        "$ref": "#/definitions/User"
+      },
+      "examples": {
+        "application/json": {
+          "id": 999,
+          "name": "manager",
+          "surname": "manager",
+          "email": "manager@example.com",
+          "createdAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)",
+          "updatedAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "GenericError": {
+      "description": "Generic error",
+      "type": "object",
+      "properties": {
+        "message": {
+          "description": "error code (code to translate)",
+          "type": "string"
+        },
+        "details": {
+          "description": "error details (code to translate)",
+          "type": "string"
+        }
+      }
+    },
+    "InvalidParametersError": {
+      "description": "Invalid Parameters error",
+      "type": "object",
+      "properties": {
+        "message": {
+          "description": "error code (code to translate)",
+          "type": "string"
+        },
+        "details": {
+          "description": "error details (code to translate)",
+          "type": "string"
+        }
+      }
+    },
+    "MissingParametersError": {
+      "description": "Missing Parameters error",
+      "type": "object",
+      "properties": {
+        "message": {
+          "description": "error code (code to translate)",
+          "type": "string"
+        },
+        "details": {
+          "description": "error details (code to translate)",
+          "type": "string"
+        }
+      }
+    },
+    "Hello": {
+      "description": "Hello",
+      "type": "object",
+      "properties": {
+        "reply": {
+          "description": "Reply message",
+          "type": "string"
+        }
+      }
+    },
+    "CredentialToken": {
+      "description": "Login successful reply",
+      "type": "object",
+      "properties": {
+        "token": {
+          "description": "Authorizarion token. To use as Bearer Authorization header",
+          "type": "string"
+        }
+      }
+    },
+    "UserLogin": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "description": "username",
+          "type": "string"
+        },
+        "password": {
+          "description": "password",
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "description": "User",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "User id",
+          "type": "string"
+        },
+        "name": {
+          "description": "User name",
+          "type": "string"
+        },
+        "surname": {
+          "description": "User surname",
+          "type": "string"
+        },
+        "email": {
+          "description": "User email",
+          "type": "string",
+          "format": "email"
+        },
+        "createdAt": {
+          "description": "User createdAt",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "User updatedAt",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

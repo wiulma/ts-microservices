@@ -1,0 +1,30 @@
+swagger: '2.0'
+info:
+  description: "Sample Storage Service API"
+  version: "0.0.1-alpha1"
+  title: "Sample Storage Service API"
+  contact:
+    name: "Sample Support Team"
+    email: "support@sample.com"
+basePath: "/api"
+securityDefinitions:  
+   $ref: "./spec/common/security.yml"
+paths:
+  $ref: "./generated/routes.json"
+parameters:
+  allOf:
+    - $ref: "./spec/parameters/hello.yml"
+    - $ref: "./spec/parameters/auth.yml"
+    - $ref: "./spec/parameters/users.yml"
+responses:
+  allOf:
+    - $ref: "./spec/common/responses.yml"
+    - $ref: "./spec/responses/hello.yml"
+    - $ref: "./spec/responses/auth.yml"
+    - $ref: "./spec/responses/users.yml"
+definitions:
+  allOf:
+    - $ref: "./spec/common/definitions.yml"
+    - $ref: "./spec/definitions/hello.yml"
+    - $ref: "./spec/definitions/auth.yml"
+    - $ref: "./spec/definitions/users.yml"

@@ -1,0 +1,37 @@
+userLogin:
+  name: userLogin
+  description: user credentials
+  in: body
+  schema:
+    $ref: "../definitions/auth.yml#/UserLogin"
+    required: ['username', 'password']
+
+updateAuth:
+  name: auth
+  description: user authemtication details
+  in: body
+  schema:
+    type: object
+    properties:
+      password:
+        type: string
+        format: password
+      role:
+        type: string
+        enum: [M, F]
+    required: ['password']
+
+resetUserPassword:
+  name: resetPassword
+  description: |
+    Reset User Password. 
+    Username or email are required
+  in: body
+  schema:
+    type: object
+    properties:
+      email:
+        type: string
+        format: email
+      username:
+        type: string

@@ -1,0 +1,32 @@
+GenericError:
+  description: Generic error
+  type: object
+  properties:
+    message: 
+      description: error code (code to translate)
+      type: string
+    details:
+      description: error details (code to translate)
+      type: string
+
+InvalidParametersError:
+  description: Invalid Parameters error
+  type: object
+  properties:
+    message: 
+      description: error code (code to translate)
+      type: string
+    details:
+      description: error details (code to translate)
+      type: string
+
+MissingParametersError:
+  description: Missing Parameters error
+  type: object
+  properties:
+    message: 
+      description: error code (code to translate)
+      type: string
+    details:
+      description: error details (code to translate)
+      type: string

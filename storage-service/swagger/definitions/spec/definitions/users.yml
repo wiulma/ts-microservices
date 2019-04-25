@@ -1,0 +1,23 @@
+User:
+  description: User
+  type: object
+  properties:
+    id:
+      description: User id
+      type: string
+    name:
+      description: User name
+      type: string
+    surname:
+      description: User surname
+      type: string
+    email:
+      description: User email
+      type: string
+      format: email
+    createdAt:
+      description: User createdAt
+      type: string
+    updatedAt:
+      description: User updatedAt
+      type: string

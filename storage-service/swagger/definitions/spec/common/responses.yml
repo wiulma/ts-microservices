@@ -1,0 +1,41 @@
+EmptySuccessResponse:
+  description: Empty success response
+
+ConflictErrorResponse:
+  description: Conflict Error Response
+  schema:
+    $ref: "./definitions.yml#/GenericError"
+  examples:
+    application/json:
+      [
+        {
+          message: "conflict.error",
+          details: "duplicate.username"
+        }
+      ]
+
+InvalidParametersErrorResponse:
+  description: Invalid parameters Error Response
+  schema:
+    $ref: "./definitions.yml#/InvalidParametersError"
+  examples:
+    application/json:
+      [
+        {
+          message: "invalid.parameters",
+          details: "invalid.username"
+        }
+      ]
+
+MissingParametersErrorResponse:
+  description: Missing parameters Error Response
+  schema:
+    $ref: "./definitions.yml#/MissingParametersError"
+  examples:
+    application/json:
+      [
+        {
+          message: "missing.parameters",
+          details: "required.username"
+        }
+      ]

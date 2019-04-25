@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "lib": [
+      "es2017", "dom.iterable"
+    ],
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDirs" : ["src"],
+    "strict": true,
+    "removeComments": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": false,
+    "strictNullChecks": false,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "__tests__",
+    "node_modules",
+    "dist"
+  ]
+}

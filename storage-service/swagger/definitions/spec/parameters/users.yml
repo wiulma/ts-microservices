@@ -1,0 +1,29 @@
+userId:
+  name: id
+  in: path
+  description: User id
+  type: string
+  required: true
+
+userDetail:
+  name: user
+  description: User detail object
+  in: body
+  schema:
+    type: object
+    properties:
+      name:
+        description: name
+        type: string
+      surname:
+        description: surname
+        type: string
+      male:
+        description: male
+        type: string
+        enum: [M, F]
+      email:
+        description: email
+        type: string
+        format: email
+    required: ['name', 'surname', 'email']

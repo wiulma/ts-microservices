@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "4d21e41b-7be6-4644-96f6-bd2321b6dbee",
+		"name": "sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "say hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8005/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "localhost:8005/api/hello/giorgio"
+			},
+			"response": []
+		},
+		{
+			"name": "post say hello",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"laura\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/hello",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"user44\",\n\t\"password\": \"user66\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"profile\": {\n\t\t\"name\": \"user44\",\n    \t\"surname\": \"user44\",\n    \t\"email\": \"user44@example.com\"\n\t},\n\t\"auth\": {\n\t\t\"username\": \"user44\",\n\t\t\"password\": \"user44\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update register auth",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"password\": \"user55\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/auth/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"auth",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTUxNDAxNzI2OTEsImlzcyI6InBldHN0b3JhZ2UiLCJzdWIiOiIzIiwiaWF0IjoxNTU1MTQwMTY5fQ.7pn-cHzd2EG9bdRL1Ut4d3ABSGSBn-eFrMu2-WBimXc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Auth",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTUxMzc4NTgxMDQsImlzcyI6InBldHN0b3JhZ2UiLCJzdWIiOiIzIiwiaWF0IjoxNTU1MTM3ODU0fQ.EwHAtxeL0AK1PAKI0Hz7SuIYJ0uBjWg7OcrLzZBFD-4",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"laura\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/hello",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTU0Mjg0NjY5MTksImlzcyI6InBldHN0b3JhZ2UiLCJzdWIiOiIxIiwiaWF0IjoxNTU1NDI4NDYzfQ.TRajGBPQ2YHsEMTVDAbTtUWtJW0MtTekfdMeKc4RvtM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8005/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user get detail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTU0Mjg0NjY5MTksImlzcyI6InBldHN0b3JhZ2UiLCJzdWIiOiIxIiwiaWF0IjoxNTU1NDI4NDYzfQ.TRajGBPQ2YHsEMTVDAbTtUWtJW0MtTekfdMeKc4RvtM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8005/api/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTU0Mjg0NjY5MTksImlzcyI6InBldHN0b3JhZ2UiLCJzdWIiOiIxIiwiaWF0IjoxNTU1NDI4NDYzfQ.TRajGBPQ2YHsEMTVDAbTtUWtJW0MtTekfdMeKc4RvtM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"user2\",\n    \"surname\": \"user2\",\n    \"email\": \"user2@example.com\",\n    \"male\": \"M\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTU0Mjg0NjY5MTksImlzcyI6InBldHN0b3JhZ2UiLCJzdWIiOiIxIiwiaWF0IjoxNTU1NDI4NDYzfQ.TRajGBPQ2YHsEMTVDAbTtUWtJW0MtTekfdMeKc4RvtM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"user333\",\n    \"surname\": \"user333\",\n    \"email\": \"user333@example.com\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/users/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTU0Mjg0NjY5MTksImlzcyI6InBldHN0b3JhZ2UiLCJzdWIiOiIxIiwiaWF0IjoxNTU1NDI4NDYzfQ.TRajGBPQ2YHsEMTVDAbTtUWtJW0MtTekfdMeKc4RvtM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8005/api/users/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

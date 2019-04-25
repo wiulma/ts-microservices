@@ -1,0 +1,18 @@
+helloGetName:
+  name: name
+  in: path
+  description: Name
+  type: string
+  required: true
+
+helloPostName:
+  name: name
+  description: Hello name
+  in: body
+  schema:
+    type: object
+    properties:
+      name:
+        description: name
+        type: string
+    required: ['name']

@@ -1,0 +1,11 @@
+HelloSuccessResponse:
+  description: Get hello success response
+  schema:
+    $ref: "../definitions/hello.yml#/Hello"
+  examples:
+    application/json:
+      [
+        {
+          "reply": "Hi giorgio"
+        }
+      ]
