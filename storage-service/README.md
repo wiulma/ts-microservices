@@ -15,7 +15,7 @@ pwd: sample-pwd
     npm i
     ```
 
-3. Run in develoepr mode
+3. Run in developer mode
     ```
     npm run start
     ```
@@ -42,7 +42,7 @@ pwd: sample-pwd
     ```
 
 ## Init example data
-After first boot, goto postgres admin coneold and execute:
+After first boot, goto postgres admin console and execute:
 db/init.sql
 
 example users:
@@ -72,4 +72,14 @@ https://medium.com/javascript-in-plain-english/creating-a-rest-api-with-jwt-auth
 In order to view and test apis, you can use swagger docs
 ```
 http://localhost:8005/apidoc/
+```
+
+## Docker
+1. When using docker, the web app context is 
+```
+http://localhost:8005/storage/
+```
+So, for example, in order to test hello api, you have to call
+```
+http://localhost:8005/storage/api/hello/giorgio
 ```

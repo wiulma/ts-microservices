@@ -1,0 +1,59 @@
+version: "3.4"
+services:
+  
+  storage-service:
+    build:
+      context: ./storage-service
+      dockerfile: ./docker/dev/Dockerfile-service
+    container_name: storage-service
+    working_dir: /usr/local/storage-service
+    depends_on:
+      - postgres
+    environment:
+      - NODE_ENV=local-stage
+    volumes:
+      - ./storage-service:/usr/local/storage-service
+       - /usr/local/storage-service/node_modules
+    ports:
+      - "90:80"
+      - "553:443"
+      - "5854:5858"
+    entrypoint: ./docker/dev/entrypoint.sh
+    networks:
+      - sample-net
+
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      PGDATA: /data/postgres
+    volumes:
+       - postgres-data:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - sample-net
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    volumes:
+       - pgadmin-data:/root/.pgadmin
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - sample-net
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  pgadmin-data:
+
+networks:
+  sample-net:

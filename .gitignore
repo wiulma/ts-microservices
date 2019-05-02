@@ -2,6 +2,7 @@ dist
 logs
 node_modules
 coverage
-docker*
 tmp
 *.old
+postgres-data
+pgadmin-data

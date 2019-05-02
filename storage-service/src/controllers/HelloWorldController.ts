@@ -62,6 +62,7 @@ export class HelloWorldController {
      *       200:
      *         $ref: '../spec/responses/hello.yml#/HelloSuccessResponse'
      */
+    
     /**
      * @method postHello
      * @description Post Hello world
