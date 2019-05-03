@@ -1,0 +1,23 @@
+version: "3.4"
+services:
+  
+  storage-service:
+    build:
+      context: ./storage-service
+      dockerfile: ./docker/dev/Dockerfile
+    container_name: storage-service
+    working_dir: /usr/local/storage-service
+    environment:
+      - NODE_ENV=local-stage
+    volumes:
+      - ./storage-service:/usr/local/storage-service
+      - /usr/local/storage-service/node_modules/
+    entrypoint: ./docker/dev/entrypoint.sh
+    ports:
+      - "8005:8005"
+      - "5855:5855"
+    networks:
+      - sample-net
+
+networks:
+  sample-net:

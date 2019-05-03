@@ -1,0 +1,15 @@
+{
+  "database": {
+    "type": "postgres",
+    "host": "postgres",
+    "port": 5432,
+    "database": "sample",
+    "username": "sample",
+    "password": "sample-pwd",
+    "synchronize": true,
+    "logging": true
+  },
+  "service": {
+    "context": "storage"
+  }
+}

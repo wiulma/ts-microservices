@@ -11,12 +11,12 @@
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
-    "prestart": "npm run build",
-    "start": "run-s clean watch:build",
+    "prestart.old": "npm run build",
+    "start": "run-s copy:assets clean watch:build",
     "watch:build": "tsc-watch --preserveWatchOutput --onSuccess \"node --inspect=0.0.0.0:5855 ./dist/index.js\" --onFailure \"echo Beep! Compilation Failed\" && npm run tslint",
     "clean": "rimraf ./dist",
     "generate-apidoc": "node ./swagger/bin/generateDoc.js",
-    "copy:assets": "cpx -v ./src/assets/**/*.* ./dist/assets",
+    "copy:assets": "cpx './src/assets/**/*.*' './dist/assets' -v",
     "test": "jest --forceExit --runInBand --detectOpenHandles",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
