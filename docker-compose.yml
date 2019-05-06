@@ -17,7 +17,7 @@ services:
       - "8005:8005"
       - "5855:5855"
     networks:
-      - sample-net
+      - ts-micro-net
 
 networks:
-  sample-net:
+  ts-micro-net:
