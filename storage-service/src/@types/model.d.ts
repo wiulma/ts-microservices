@@ -7,7 +7,7 @@ declare interface UserModel {
     id: number;
     name: string;
     surname: string;
-    male: string;
+    gender: string;
     email: string;
     createdAt: Date;
     updatedAt: Date;

@@ -18,8 +18,8 @@ userDetail:
       surname:
         description: surname
         type: string
-      male:
-        description: male
+      gender:
+        description: gender
         type: string
         enum: [M, F]
       email:

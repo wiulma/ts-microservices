@@ -423,8 +423,8 @@
             "description": "surname",
             "type": "string"
           },
-          "male": {
-            "description": "male",
+          "gender": {
+            "description": "gender",
             "type": "string",
             "enum": [
               "M",
@@ -570,7 +570,7 @@
           "id": 999,
           "name": "manager",
           "surname": "manager",
-          "male": "M",
+          "gender": "M",
           "email": "manager@example.com",
           "createdAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)",
           "updatedAt": "Tue Apr 16 2019 17:20:09 GMT+0200 (GMT+02:00)"

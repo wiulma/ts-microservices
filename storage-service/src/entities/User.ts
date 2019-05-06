@@ -25,7 +25,7 @@ export class User implements UserModel {
     public surname: string;
 
     @Column({ nullable: true })
-    public male: string;
+    public gender: string;
 
     @Column()
     @IsEmail()
@@ -42,7 +42,7 @@ export class User implements UserModel {
     constructor(user?: UserModel) {
         if (user) {
             this.email = user.email;
-            this.male = user.male;
+            this.gender = user.gender;
             this.name = user.name;
             this.surname = user.surname;
         }

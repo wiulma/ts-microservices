@@ -11,7 +11,7 @@ declare type UserResponse = {
     updatedAt: string;
 }
 
-declare type UserDetailResponse = UserResponse & { male: string}
+declare type UserDetailResponse = UserResponse & { gender: string}
 
 declare type CredentialResponse = {
     token: string;
