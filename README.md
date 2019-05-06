@@ -27,8 +27,10 @@ Setup local environment
 #### Install database
 1. Install locally postgres
 2. create a user:
+```
 uid: sample
 pwd: sample-pwd
+```
 
 
 #### Setup backend
@@ -88,6 +90,19 @@ Install Postman and use provided collection in ./postman/sample.storage-service.
 Launch docker (or backend locally) and go to:
 ```
 http://localhost:8005/apidoc/
+```
+
+### Database client
+Docker environment provide a PGAdmin 4 container in order to manage database.
+In order to connect, open a browser and go to:
+```
+http://localhost:5050
+```
+
+Then, login with these credentials:
+```
+user:pgadmin4@pgadmin.org
+pwd:admin
 ```
 
 ### Some docker tricks
