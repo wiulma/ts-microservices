@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4d21e41b-7be6-4644-96f6-bd2321b6dbee",
+		"_postman_id": "db40c75f-584e-4533-b627-17a430548a7a",
 		"name": "sample",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,14 +15,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:8005/api/login",
+					"raw": "localhost:8005/api/hello/robot",
 					"host": [
 						"localhost"
 					],
 					"port": "8005",
 					"path": [
 						"api",
-						"login"
+						"hello",
+						"robot"
 					]
 				},
 				"description": "localhost:8005/api/hello/giorgio"
@@ -43,7 +44,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"laura\"\n}"
+					"raw": "{\n\t\"name\": \"robot\"\n}"
 				},
 				"url": {
 					"raw": "localhost:8005/api/hello",
@@ -60,7 +61,37 @@
 			"response": []
 		},
 		{
-			"name": "login",
+			"name": "login error",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"user\",\n\t\"password\": \"user-pwd\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8005/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login success",
 			"request": {
 				"method": "POST",
 				"header": [
