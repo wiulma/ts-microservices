@@ -10,6 +10,6 @@
     "logging": true
   },
   "service": {
-    "context": "storage"
+    "context": ""
   }
 }
